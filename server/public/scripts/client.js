@@ -1,5 +1,13 @@
-var app = angular.module('hrApp', ['ngRoute']);
+console.log('client loaded!');
 
+var app = angular.module('apiApp', ['ngRoute', 'ngMaterial'])
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('docs-dark', 'default')
+    .primaryPalette('blue')
+    .warnPalette('red')
+    .accentPalette('light-green')
+    .dark();
+});
 // app configuration
 app.config(function($routeProvider) {
     console.log('config loaded');
@@ -7,7 +15,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when('/add', {
             templateUrl: '/views/',
-            controller: '    as vm'
+            controller: 'API    as vm'
         })
         .otherwise(
             { redirectTo: '/reports' }
