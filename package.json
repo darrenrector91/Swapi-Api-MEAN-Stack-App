@@ -1,0 +1,33 @@
+{
+  "name": "full_stack_api_interface",
+  "version": "1.0.0",
+  "description": "Javascript AngularJS",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.6.8",
+    "angular-animate": "^1.6.8",
+    "angular-aria": "^1.6.8",
+    "angular-material": "^1.1.6",
+    "angular-messages": "^1.6.8",
+    "angular-route": "^1.6.8",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.1",
+    "nodemon": "^1.14.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrenrector91/full_stack_api_interface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darrenrector91/full_stack_api_interface/issues"
+  },
+  "homepage": "https://github.com/darrenrector91/full_stack_api_interface#readme"
+}
