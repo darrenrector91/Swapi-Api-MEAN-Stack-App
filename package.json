@@ -2,7 +2,7 @@
   "name": "full_stack_api_interface",
   "version": "1.0.0",
   "description": "Javascript AngularJS",
-  "main": "index.js",
+  "main": "server/server.js",
   "dependencies": {
     "angular": "^1.6.8",
     "angular-animate": "^1.6.8",

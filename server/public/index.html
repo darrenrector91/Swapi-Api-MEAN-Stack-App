@@ -1,29 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>API Interface</title>
-    <!-- ANGULAR -->
-    <script src="vendors/angular.js"></script>
-    <script src="vendors/angular-route.js"></script>
-    <script src="vendors/angular-aria.js"></script>
-    <script src="vendors/angular-animate.js"></script>
-    <script src="vendors/angular-messages.js"></script>
-    <script src="vendors/angular-material.js"></script>
-    <!-- SCRIPTS -->
-    <script src="scripts/client.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Star Wars API Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- STYLING -->
-    <link rel="stylesheet" href="vendors/angular-material.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <!-- ANGULAR -->
+  <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
+  <script src="vendors/angular.js"></script>
+  <script src="vendors/angular-route.js"></script>
+  <script src="vendors/angular-animate.js" charset="utf-8"></script>
+  <script src="vendors/angular-aria.js" charset="utf-8"></script>
+  <script src="vendors/angular-messages.js" charset="utf-8"></script>
+  <script src="vendors/angular-material.js" charset="utf-8"></script>
+
+
+  <!-- SCRIPTS -->
+  <script src="scripts/client.js"></script>
+  <script src="scripts/controllers/search.controller.js"></script>
+  <script src="scripts/controllers/favorites.controller.js"></script>
+  <script src="/scripts/service/swapi.service.js"></script>
+
+  <!-- STYLING -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
-<body ng-app="apiApp" >
-<h1>API Interface!</h1>
+<body ng-app="app" layout="column" layout-align="top-left">
+  <md-toolbar class="md-primary">
+    <div class="md-toolbar-tools">
+      <h1 md-truncate flex class="appTitle">Star Wars API Search</h1>
+      <link class="linkNav">
+      <a href="#!/search">
+        Search</a>
+      </link>
+      <link class="linkNav">
+      <a href="#!/random">
+        Favorites</a>
+      </link>
+    </div>
+  </md-toolbar>
+  <main ng-view></main>
+
 </body>
 
 </html>

@@ -2,12 +2,13 @@ console.log('client loaded!');
 
 var app = angular.module('apiApp', ['ngRoute', 'ngMaterial'])
 .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('docs-dark', 'default')
-    .primaryPalette('blue')
-    .warnPalette('red')
-    .accentPalette('light-green')
-    .dark();
-});
+    $mdThemingProvider.theme('default')
+      .primaryPalette('orange')
+      .warnPalette('red')
+      .accentPalette('lime')
+      .backgroundPalette('grey')
+      .dark();
+  });
 // app configuration
 app.config(function($routeProvider) {
     console.log('config loaded');
