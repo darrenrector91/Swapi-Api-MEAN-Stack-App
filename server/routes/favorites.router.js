@@ -8,14 +8,14 @@ let Favorite = mongoose.model('Favorite', favoritesSchema);
 
 // POST route
 router.post('/', (req, res) => {
-    console.log('data to save: ', req.body);
+    console.log('data: ', req.body);
     let favoriteAdd = new Favorite(req.body);
     favoriteAdd.save( (error, saved) => {
         if (error) {
-            console.log('error on save: ', error);
+            console.log('save error: ', error);
             res.sendStatus(500);            
         } else {
-            console.log('new favorite Document: ', saved);            
+            console.log('favorite post: ', saved);            
             res.sendStatus(201);
         }
     }); // end save
@@ -25,10 +25,10 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     Favorite.find({'add_favorite': 'true'}, (error, add_favorite) => {
         if(error) {
-            console.log('error on find:', error);
+            console.log('favorite error:', error);
             res.sendStatus(500);
         } else {
-            console.log('found Favorite documents', add_favorite);
+            console.log('favorite get', add_favorite);
             res.send(add_favorite);
         }
     })
@@ -41,10 +41,10 @@ router.delete('/:id', (req, res) => {
         {'_id': favdId},
         (error, removedDocument) => {
             if(error) {
-                console.log('error on delete', error);
+                console.log('delete', error);
                 res.sendStatus(500);
             } else {
-                console.log('document has been removed', removedDocument);
+                console.log('deleted success', removedDocument);
                 res.sendStatus(200);
             }
         });
@@ -53,7 +53,7 @@ router.delete('/:id', (req, res) => {
 router.get('/favoriteCount', (req,res)=>{
     Favorite.count({}, (error, favoriteCount) => {
         if(error) {
-            console.log('error getting favorite count', error);
+            console.log('error favorite count', error);
             res.sendStatus(500);
         } else {
             console.log('found favorite count: ', favoriteCount);

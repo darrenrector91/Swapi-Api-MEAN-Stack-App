@@ -53,7 +53,8 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             .catch(function(response){
                 console.log('error on GET request');
             })
-	}
+    }
+    
 
 
 
