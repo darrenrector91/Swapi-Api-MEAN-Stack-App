@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Star Wars API Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="vendors/angular.js"></script>
+  <script src="vendors/angular-route.js"></script>
 
 
   <!-- ANGULAR -->
   <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
-  <script src="vendors/angular.js"></script>
-  <script src="vendors/angular-route.js"></script>
   <script src="vendors/angular-animate.js" charset="utf-8"></script>
   <script src="vendors/angular-aria.js" charset="utf-8"></script>
   <script src="vendors/angular-messages.js" charset="utf-8"></script>
@@ -22,7 +22,7 @@
   <script src="scripts/client.js"></script>
   <script src="scripts/controllers/search.controller.js"></script>
   <script src="scripts/controllers/favorites.controller.js"></script>
-  <script src="/scripts/service/swapi.service.js"></script>
+  <script src="scripts/service/swapi.service.js"></script>
 
   <!-- STYLING -->
   <link rel="stylesheet" href="styles/main.css">
@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
-<body ng-app="app" layout="column" layout-align="top-left">
+<body ng-app="starwarsApp" layout="column" layout-align="top-left">
   <md-toolbar class="md-primary">
     <div class="md-toolbar-tools">
       <h1 md-truncate flex class="appTitle">Star Wars API Search</h1>
@@ -39,7 +39,7 @@
         Search</a>
       </link>
       <link class="linkNav">
-      <a href="#!/random">
+      <a href="#!/favorites">
         Favorites</a>
       </link>
     </div>
