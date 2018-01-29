@@ -24,7 +24,7 @@ npm install will add the necessary dependencies
     "express": "^5.0.1",
     "nodemon": "^1.14.11"
 
-    <h1>OR COPY AND PASTE THE BELOW LINE INTO TERMINAL</h1>
+OR COPY AND PASTE THE BELOW LINE INTO TERMINAL
 
 npm install -- save angular@1.6.8 angular-animate angular-aria angular-material angular-messages angular-route body-parser express express nodemon
 
@@ -41,5 +41,4 @@ npm install -- save angular@1.6.8 angular-animate angular-aria angular-material 
 
 ## Authors
 
-***Darren Rector**
-
+* Darren Rector
