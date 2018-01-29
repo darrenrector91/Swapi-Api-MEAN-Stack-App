@@ -3,13 +3,15 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
 
     const self = this;
 
-    self.message = "Hello from the SwapiService!";
-
     self.resources = {
         list: []
     };
 
-    // get resources
+    self.search = {
+        list: []
+    };
+
+    // getResources function
     self.getResources = function () {
         $http({
             method: 'GET',
@@ -18,6 +20,19 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             self.resources.list = response.data;
         })
     };
+
+    // search function
+    self.search = function (resource, keyword) {
+        $http({
+            method: 'GET',
+            url: 'https://swapi.co/api/' + resource + '/?search=' + keyword
+        }).then(function (response) {
+            self.search.list = response.data.results;
+            console.log('self.search.list', self.search.list);
+        })
+    };
+
+
 
 
 }]);

@@ -1,14 +1,12 @@
 starwarsApp.controller("SearchController", ['SwapiService', function (SwapiService) {
   const self = this;
 
-  self.message = SwapiService.message;
-
-  self.searchResults = SwapiService.searchResults;
+  self.results = SwapiService.results;
   self.resources = SwapiService.resources;
 
-  // run the searchSwapi function
-  self.searchSwapi = function (resource, keyword) {
-    SwapiService.searchSwapi(resource, keyword);
+  // search
+  self.search = function (resource, keyword) {
+    SwapiService.search(resource, keyword);
   }
 
   // run the getResources function
