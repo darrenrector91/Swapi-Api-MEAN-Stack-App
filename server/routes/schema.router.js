@@ -5,7 +5,7 @@ let favoritesSchema = new mongoose.Schema(
         url: {type: String, unique: true},
         name: {type: String},
         title: {type: String, default: false},
-        favorited: {type: Boolean, default: false}
+        add_favorite: {type: Boolean, default: false}
     }   
 )
 

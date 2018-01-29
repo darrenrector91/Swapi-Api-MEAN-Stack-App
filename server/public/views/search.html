@@ -15,16 +15,56 @@
     </div>
 </div>
 <div class="searchButton">
-    <md-button class="md-raised md-accent btnSearch" ng-click="vm.search(vm.resource, vm.keyword)" name="searchInput" >Submit</md-button>
+    <md-button class="md-raised md-accent btnSearch" ng-click="vm.searchSwapi(vm.resource, vm.keyword)">Submit</md-button>
 </div>
 
-<h2>Search Results:</h2>
-<div class="grid" layout="horizontal" layout-align="center center" layout-wrap>
-    <md-card ng-repeat="results in vm.results.list">
-        <a ng-href="{{results.url}}"></a>
-        <img ng-src="{{results.images.fixed_height_small.url}}" class="md-card-image" alt="image caption">
-        <md-card-content>
-            <h3>{{results.title}}</h3>
-        </md-card-content>
-    </md-card>
-</div>
+<h2>Results</h2>
+<md-content class="md-padding" layout-xs="column" layout-wrap layout="row">
+    <div flex-xs="" flex-gt-xs="50" layout="column" ng-repeat="results in vm.searchResults.list">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline" ng-if="results.title">{{results.title}}</span>
+                    <span class="md-headline" ng-if="results.name">{{results.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p ng-if="results.birth_year">
+                    <b>Birth Year:</b> {{results.birth_year}}
+                </p>
+                <p ng-if="results.gender">
+                    <b>Gender:</b> {{results.gender}}
+                </p>
+                <p ng-if="results.opening_crawl">
+                    <b>Opening Crawl:</b> {{results.opening_crawl}}
+                </p>
+                <p ng-if="results.manufacturer">
+                    <b>Manufacturer:</b> {{results.manufacturer}}
+                </p>
+                <p ng-if="results.passengers">
+                    <b>Passengers:</b> {{results.passengers | number}}
+                </p>
+                <p ng-if="results.cargo_capacity">
+                    <b>Cargo Capacity:</b> {{results.cargo_capacity | number}}
+                </p>
+                <p ng-if="results.classification">
+                    <b>Classification:</b> {{results.classification}}
+                </p>
+                <p ng-if="results.language">
+                    <b>Language:</b> {{results.language}}
+                </p>
+                <p ng-if="results.climate">
+                    <b>Climate:</b> {{results.climate}}
+                </p>
+                <p ng-if="results.population">
+                    <b>Population:</b> {{results.population | number}}
+                </p>
+            </md-card-content>
+            <div class="image-vote" ng-controller="FavoritesController as vm">
+                <div class="image-vote-button" ng-click="vm.voteUp()">
+                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i><span class="btnFavoritesText">Add to Favorites</span></button>
+                </div>
+            </div>
+        </md-card>
+    </div>
+</md-content>
