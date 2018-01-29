@@ -1,7 +1,7 @@
 {
   "name": "full_stack_api_interface",
   "version": "1.0.0",
-  "description": "Javascript AngularJS",
+  "description": "Javascript AngularJS API service from Swapi",
   "main": "server/server.js",
   "dependencies": {
     "angular": "^1.6.8",

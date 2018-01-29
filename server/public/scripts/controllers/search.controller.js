@@ -1,10 +1,20 @@
 starwarsApp.controller("SearchController", ['SwapiService', function (SwapiService) {
-    const self = this;
-    self.results = SwapiService.results
-    self.btnSearch = function (searchGif) {
-      console.log(searchGif);
-      SwapiService.search(searchGif);
-      self.search = '';
-    }
-  
-  }]);
+  const self = this;
+
+  self.message = SwapiService.message;
+
+  self.searchResults = SwapiService.searchResults;
+  self.resources = SwapiService.resources;
+
+  // run the searchSwapi function
+  self.searchSwapi = function (resource, keyword) {
+    SwapiService.searchSwapi(resource, keyword);
+  }
+
+  // run the getResources function
+  self.getResources = function () {
+    SwapiService.getResources();
+  }
+
+  self.getResources();
+}]);

@@ -5688,7 +5688,7 @@ function detectDisabledThemes($mdThemingProvider) {
  * This can be done by using the following markup.
  *
  * <hljs lang="js">
- *   myAppModule.config(function($mdThemingProvider) {
+ *   starwarsAppModule.config(function($mdThemingProvider) {
  *     $mdThemingProvider
  *       .theme('default')
  *       .primaryPalette('blue')
@@ -5705,7 +5705,7 @@ function detectDisabledThemes($mdThemingProvider) {
  * If you have an application, which changes its theme on runtime, you have to enable theme watching.
  *
  * <hljs lang="js">
- *   myAppModule.config(function($mdThemingProvider) {
+ *   starwarsAppModule.config(function($mdThemingProvider) {
  *     // Enable theme watching.
  *     $mdThemingProvider.alwaysWatchTheme(true);
  *   });
@@ -5717,7 +5717,7 @@ function detectDisabledThemes($mdThemingProvider) {
  * You are able to register your own styles by using the following markup.
  *
  * <hljs lang="js">
- *   myAppModule.config(function($mdThemingProvider) {
+ *   starwarsAppModule.config(function($mdThemingProvider) {
  *     // Register our custom stylesheet into the theming provider.
  *     $mdThemingProvider.registerStyles(STYLESHEET);
  *   });
@@ -5730,7 +5730,7 @@ function detectDisabledThemes($mdThemingProvider) {
  * like [raw-loader](https://github.com/webpack/raw-loader) for `webpack`.
  *
  * <hljs lang="js">
- *   myAppModule.config(function($mdThemingProvider) {
+ *   starwarsAppModule.config(function($mdThemingProvider) {
  *     // Register your custom stylesheet into the theming provider.
  *     $mdThemingProvider.registerStyles(require('../styles/my-component.theme.css'));
  *   });
@@ -5749,7 +5749,7 @@ function detectDisabledThemes($mdThemingProvider) {
  * `hue`     - The hue from the selected palette. Default is `800`<br/>
  *
  * <hljs lang="js">
- *   myAppModule.config(function($mdThemingProvider) {
+ *   starwarsAppModule.config(function($mdThemingProvider) {
  *     // Enable browser color
  *     $mdThemingProvider.enableBrowserColor({
  *       theme: 'myTheme', // Default is 'default'
@@ -21002,7 +21002,7 @@ function SidenavFocusDirective() {
  * </hljs>
  *
  * <hljs lang="js">
- * var app = angular.module('myApp', ['ngMaterial']);
+ * var app = angular.module('starwarsApp', ['ngMaterial']);
  * app.controller('MyController', function($scope, $mdSidenav) {
  *   $scope.openLeftMenu = function() {
  *     $mdSidenav('left').toggle();
@@ -30390,7 +30390,7 @@ function MdContactChips($mdTheming, $mdUtil) {
    *
    * @usage
    * <hljs lang="js">
-   * myAppModule.config(function($mdDateLocaleProvider) {
+   * starwarsAppModule.config(function($mdDateLocaleProvider) {
    *
    *     // Example of a French localization.
    *     $mdDateLocaleProvider.months = ['janvier', 'février', 'mars', ...];
@@ -34921,7 +34921,7 @@ function MdProgressCircularDirective($window, $mdProgressCircular, $mdTheming,
  *
  * @usage
  * <hljs lang="js">
- *   myAppModule.config(function($mdProgressCircularProvider) {
+ *   starwarsAppModule.config(function($mdProgressCircularProvider) {
  *
  *     // Example of changing the default progress options.
  *     $mdProgressCircularProvider.configure({

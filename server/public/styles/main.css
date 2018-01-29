@@ -1,4 +1,13 @@
+.searchInputs {
+    margin-top: 5%;
+}
 
+.btnSearch {
+    margin-left: 25%;
+    width: 200px;
+}
+
+/* 
 .lblSearch {
     margin-top: 30px;
 }
@@ -22,6 +31,7 @@ a:hover {
 
 .gifSearch {
     margin-left: 350px;
+    height: 20px;
 
 }
 
@@ -88,3 +98,4 @@ md-card {
     margin-bottom: 25px;
     margin-left: 600px;
 }
+ */

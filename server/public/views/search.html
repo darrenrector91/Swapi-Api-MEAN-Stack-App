@@ -1,17 +1,19 @@
-<!-- <div class="searchDiv">
-    <label class="lblSearch" for="searchInput"></label>
-    <md-input-container md-no-float>
-        <input type="text" ng-model="vm.search" class="searchInput" placeholder="Search Swapi.com">
-    </md-input-container>
-    <md-button class="md-raised md-accent gifSearch" ng-click="vm.btnSearch(vm.search)" name="searchInput">Submit</md-button>
+<div class="searchInputs">
+    <div class="row" layout="row" layout-align="center">
+        <md-input-container flex="50" class="flex-50">
+            <label>Pick a resource:</label>
+            <md-select name="type" ng-model="vm.selectedResource" required>
+                <md-option ng-repeat="(key, val) in vm.resources.list" value="{{key}}">{{key}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div class="row" layout="row" layout-align="center">
+        <md-input-container flex="50" class="flex-50">
+            <label>Add a keyword:</label>
+            <input type="text" ng-model="vm.search" class="searchInput" required>
+        </md-input-container>
+    </div>
 </div>
-
-<div class="grid" layout="horizontal" layout-align="center center" layout-wrap>
-    <md-card ng-repeat="results in vm.results.list">
-        <a ng-href="{{results.url}}"></a>
-        <img ng-src="{{results.images.fixed_height_small.url}}" class="md-card-image" alt="image caption">
-        <md-card-content>
-            <h3>{{results.title}}</h3>
-        </md-card-content>
-    </md-card>
-</div> -->
+<div class="searchButton">
+    <md-button class="md-raised md-accent btnSearch" ng-click="vm.btnSearch(vm.search)" name="searchInput" >Submit</md-button>
+</div>
