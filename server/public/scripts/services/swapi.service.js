@@ -40,6 +40,7 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             .then(function(response){
                 console.log('posted to favorites', response);
                 self.getFavorites();
+                self.searchResults = {};
             })
             .catch(function(response){
                 console.log('error on POST request', response);

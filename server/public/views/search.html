@@ -2,7 +2,7 @@
     <div class="row" layout="row" layout-align="center">
         <md-input-container flex="50" class="flex-50">
             <label>Pick a resource:</label>
-            <md-select name="type" ng-model="vm.resource" required>
+            <md-select class="dropdown" name="type" ng-model="vm.resource" required>
                 <md-option ng-repeat="(key, val) in vm.resources.list" value="{{key}}">{{key}}</md-option>
             </md-select>
         </md-input-container>
@@ -26,7 +26,6 @@
                 <md-card-title-text>
                     <span class="md-headline" ng-if="results.title">{{results.title}}</span>
                     <span class="md-headline" ng-if="results.name">{{results.name}}</span>
-                    <span class="md-headline" ng-if="results.manufacturer">{{results.name}}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
@@ -63,7 +62,7 @@
             </md-card-content>
             <div class="image-vote" ng-controller="SearchController as vm">
                 <div class="image-vote-button" >
-                    <button ng-click="vm.favoriteAdd({'name': results.name, 'url': results.url, 'title': results.title, 'add_favorite': true})">Add to favorites</button>
+                    <md-button class="md-raised md-accent"  ng-click="vm.favoriteAdd({'name': results.name, 'url': results.url, 'title': results.title, 'add_favorite': true})">Add to favorites</md-button>
                 </div>
             </div>
         </md-card>

@@ -8,7 +8,7 @@ starwarsApp.config(function ($routeProvider, $mdThemingProvider) {
         .warnPalette('red')
         .accentPalette('lime')
         .backgroundPalette('grey')
-        .dark();
+        .dark()
     // app configuration
     $routeProvider
         .when('/search', {
