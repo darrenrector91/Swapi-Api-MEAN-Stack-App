@@ -1,15 +1,6 @@
 starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiService) {
     const self = this;
 
-    // self.vote = 0;
-
-    // //increase vote by 1
-    // self.voteUp = function () {
-
-    //     self.vote += 1;
-    //     return self.vote;
-    // }
-
     self.favorites = SwapiService.favorites;
     self.favoriteCount = SwapiService.favoriteCount;
 
@@ -17,6 +8,11 @@ starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiSe
     self.getFavorites = function () {
         SwapiService.getFavorites();
     }
+
+    // // add favorites
+    // self.favoriteAdd = function() {
+    //     SwapiService.favoriteAdd();
+    // }
 
     // delete Favorite
     self.delete = function (favdId) {

@@ -14,9 +14,9 @@ starwarsApp.controller("SearchController", ['SwapiService', function (SwapiServi
     SwapiService.searchSwapi(resource, keyword);
   }
 
-  // favorite increment function
-  self.favoriteAdd = function(favorite, incrementFavorite) {
-    SwapiService.favoriteAdd(favorite, incrementFavorite);
+  // favorite add function
+  self.favoriteAdd = function(favorite) {
+    SwapiService.favoriteAdd(favorite);
   }
 
   // favorites count total function

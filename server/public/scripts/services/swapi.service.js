@@ -11,6 +11,8 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
         list: []
     };
 
+    self.favorites = [];
+
     // get resources function
     self.getResources = function () {
         $http({
@@ -36,11 +38,11 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
     self.favoriteAdd = function(favorite) {
         $http.post('/favorites', favorite)
             .then(function(response){
-                console.log('posted to favorites!');
-                self.favoriteCount();
+                console.log('posted to favorites', response);
+                self.getFavorites();
             })
             .catch(function(response){
-                console.log('error on POST request');
+                console.log('error on POST request', response);
             });
     }
     
@@ -48,15 +50,15 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
     self.getFavorites = function() {
         $http.get('/favorites')
             .then(function(response){
-                self.favorites.list = response.data;
+                console.log('get', response);
+                
+                self.favorites = response.data;
             })
             .catch(function(response){
                 console.log('error on GET request');
             })
     }
-    
 
-
-
+    self.getFavorites();
 
 }]);
