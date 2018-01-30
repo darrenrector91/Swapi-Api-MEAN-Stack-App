@@ -1,2 +1,17 @@
-<h1>favorites</h1>  
-
+<h2>Results</h2>
+<md-content class="md-padding" layout-xs="column" layout-wrap layout="row">
+    <div flex-xs="" flex-gt-xs="50" layout="column" ng-repeat="results in vm.searchResults.list">
+        {{vm.searchResults.list}}
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline" ng-if="results.title">{{results.title}}</span>
+                    <span class="md-headline" ng-if="results.name">{{results.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+    <div>
+        <md-button class="md-raised md-warn"  ng-click="vm.deleteFavorite">Delete favorite</md-button>
+    </div>
+</md-content>

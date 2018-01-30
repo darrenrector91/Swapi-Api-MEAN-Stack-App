@@ -1,18 +1,16 @@
 starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiService) {
+    console.log('FavoritesController loaded');
+    
     const self = this;
 
     self.favorites = SwapiService.favorites;
     self.favoriteCount = SwapiService.favoriteCount;
+    self.results = SwapiService.getFavorites;
 
     // run the getFavorites function
     self.getFavorites = function () {
         SwapiService.getFavorites();
     }
-
-    // // add favorites
-    // self.favoriteAdd = function() {
-    //     SwapiService.favoriteAdd();
-    // }
 
     // delete Favorite
     self.delete = function (favdId) {

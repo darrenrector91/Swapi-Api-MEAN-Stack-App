@@ -35,30 +35,42 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
     };
 
     // post favorite function
-    self.favoriteAdd = function(favorite) {
+    self.favoriteAdd = function (favorite) {
         $http.post('/favorites', favorite)
-            .then(function(response){
+            .then(function (response) {
                 console.log('posted to favorites', response);
                 self.getFavorites();
-                self.searchResults = {};
+                self.searchResults.list = {};
             })
-            .catch(function(response){
+            .catch(function (response) {
                 console.log('error on POST request', response);
             });
     }
-    
-    // get favorites 
-    self.getFavorites = function() {
+
+    self.getFavorites = function () {
+        // get from db
+        console.log('service getting favorites');
         $http.get('/favorites')
-            .then(function(response){
-                console.log('get', response);
-                
-                self.favorites = response.data;
+            .then(function (response) {
+                console.log('services getFavorites', response.data);
+                self.favorites.list = response.data;
             })
-            .catch(function(response){
-                console.log('error on GET request');
+            .catch(function (response) {
+                console.log('error services get: ', response);
+            });
+    };
+
+    self.deleteFavorite = function (id) {
+        $http.delete(`/favorites/${id}`)
+            .then(function (response) {
+                console.log('deleted favorite');
+                self.getFavorites();
             })
-    }
+            .catch(function (response) {
+                console.log('error on post: ', response);
+            });
+    };
+
 
     self.getFavorites();
 
