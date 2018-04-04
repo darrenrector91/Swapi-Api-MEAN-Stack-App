@@ -80,7 +80,7 @@ var isNodeOneOf = function(elem, nodeTypeArray) {
  * Used for configuring the ARIA attributes injected and managed by ngAria.
  *
  * ```js
- * angular.module('myApp', ['ngAria'], function config($ariaProvider) {
+ * angular.module('starwarsApp', ['ngAria'], function config($ariaProvider) {
  *   $ariaProvider.config({
  *     ariaValue: true,
  *     tabindex: false

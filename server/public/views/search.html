@@ -1,17 +1,73 @@
-<!-- <div class="searchDiv">
-    <label class="lblSearch" for="searchInput"></label>
-    <md-input-container md-no-float>
-        <input type="text" ng-model="vm.search" class="searchInput" placeholder="Search Swapi.com">
-    </md-input-container>
-    <md-button class="md-raised md-accent gifSearch" ng-click="vm.btnSearch(vm.search)" name="searchInput">Submit</md-button>
-</div>
+<header ng-include="'/views/partials/search-nav.html'"></header>
 
-<div class="grid" layout="horizontal" layout-align="center center" layout-wrap>
-    <md-card ng-repeat="results in vm.results.list">
-        <a ng-href="{{results.url}}"></a>
-        <img ng-src="{{results.images.fixed_height_small.url}}" class="md-card-image" alt="image caption">
-        <md-card-content>
-            <h3>{{results.title}}</h3>
-        </md-card-content>
-    </md-card>
-</div> -->
+<div class="container">
+    <!-- <div class="searchInputs"> -->
+    <div class="row" layout="row" layout-align="center">
+        <md-input-container flex="50" class="flex-50">
+            <label>Pick a resource:</label>
+            <md-select class="dropdown" name="type" ng-model="vm.resource" required>
+                <md-option ng-repeat="(key, val) in vm.resources.list" value="{{key}}">{{key}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div class="row" layout="row" layout-align="center">
+        <md-input-container flex="50" class="flex-50">
+            <label>Add a keyword:</label>
+            <input type="text" ng-model="vm.keyword" class="searchInput" required>
+        </md-input-container>
+    </div>
+    <!-- </div> -->
+    <div class="searchButton">
+        <md-button class="md-raised md-accent btnSearch" ng-click="vm.searchSwapi(vm.resource, vm.keyword)">Submit</md-button>
+    </div>
+    <h2>Results</h2>
+    <!-- <md-content class="md-padding" layout-xs="column" layout-wrap layout="row"> -->
+    <div flex-xs="" flex-gt-xs="50" layout="column" ng-repeat="results in vm.searchResults.list">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline" ng-if="results.title">{{results.title}}</span>
+                    <span class="md-headline" ng-if="results.name">{{results.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p ng-if="results.birth_year">
+                    <b>Birth Year:</b> {{results.birth_year}}
+                </p>
+                <p ng-if="results.gender">
+                    <b>Gender:</b> {{results.gender}}
+                </p>
+                <p ng-if="results.opening_crawl">
+                    <b>Opening Crawl:</b> {{results.opening_crawl}}
+                </p>
+                <p ng-if="results.manufacturer">
+                    <b>Manufacturer:</b> {{results.manufacturer}}
+                </p>
+                <p ng-if="results.passengers">
+                    <b>Passengers:</b> {{results.passengers | number}}
+                </p>
+                <p ng-if="results.cargo_capacity">
+                    <b>Cargo Capacity:</b> {{results.cargo_capacity | number}}
+                </p>
+                <p ng-if="results.classification">
+                    <b>Classification:</b> {{results.classification}}
+                </p>
+                <p ng-if="results.language">
+                    <b>Language:</b> {{results.language}}
+                </p>
+                <p ng-if="results.climate">
+                    <b>Climate:</b> {{results.climate}}
+                </p>
+                <p ng-if="results.population">
+                    <b>Population:</b> {{results.population | number}}
+                </p>
+            </md-card-content>
+            <div class="image-vote" ng-controller="SearchController as vm">
+                <div class="image-vote-button">
+                    <md-button class="md-raised md-accent" ng-click="vm.favoriteAdd({'name': results.name, 'url': results.url, 'title': results.title, 'add_favorite': true})">Add to favorites</md-button>
+                </div>
+            </div>
+        </md-card>
+    </div>
+    <!-- </md-content> -->
+</div>

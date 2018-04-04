@@ -1,23 +1,35 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const favoritesRouter = require('./routes/favorites.router');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(express.static('server/public/'));
 app.use(bodyParser.json()); // needed for angular requests
 
 /** ---------- EXPRESS ROUTES ---------- **/
+app.use('/favorites', favoritesRouter);
+
+// Mongo Connection //
+var mongoURI = '';
+// process.env.MONGODB_URI will only be defined if you
+// are running on Heroku
+if(process.env.MONGODB_URI != undefined) {
+    // use the string value of the environment variable
+    mongoURI = process.env.MONGODB_URI;
+} else {
+    // use the local database server
+    mongoURI = 'mongodb://localhost:27017/swapi-api-app';
+}
 
 /** ---------- MONGOOSE ------------ **/
 const mongoose = require('mongoose');
-
-// 27017 is the default mongo port number
-const databaseUrl = 'mongodb://localhost:27017/hr_employees';
+const databaseUrl = 'mongodb://localhost:27017/swapi-api-app'
 
 // connect to mongoDB
 mongoose.connect(databaseUrl);
 
-// optional output from connectione events
+// optional output from connection events
 mongoose.connection.on('connected', () => {
 	console.log('mongoose is connected');
 });
@@ -25,7 +37,6 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', () => {
 	console.log('mongoose connection failed');
 });
-
 
 /** ---------- START SERVER ---------- **/
 app.set('port', process.env.PORT || 5000);

@@ -1,0 +1,19 @@
+<header ng-include="'/views/partials/fav-nav.html'"></header>
+
+<div class="favContainer">
+    <h1>Results</h1>
+    <!-- <md-content class="md-padding" layout-xs="column" layout-wrap layout="row"> -->
+        <div flex-xs="" flex-gt-xs="50" layout="column" ng-repeat="results in vm.favorites.list">
+            {{vm.searchResults.list}}
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <!-- <span class="md-headline" ng-if="results.title">{{results.title}}</span> -->
+                        <span class="md-headline" ng-if="results.name">{{results.name}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-button class="md-raised btnDelete" ng-click="vm.deleteFavorite(results._id)">Delete favorite</md-button>
+            </md-card>
+        </div>
+    <!-- </md-content> -->
+</div>

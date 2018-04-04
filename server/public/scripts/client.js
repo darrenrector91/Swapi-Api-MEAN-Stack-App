@@ -1,26 +1,25 @@
 console.log('client loaded!');
 
-var app = angular.module('apiApp', ['ngRoute', 'ngMaterial'])
-.config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('orange')
-      .warnPalette('red')
-      .accentPalette('lime')
-      .backgroundPalette('grey')
-      .dark();
-  });
-// app configuration
-app.config(function($routeProvider) {
-    console.log('config loaded');
-    // define our client side routes
-    $routeProvider
-        .when('/add', {
-            templateUrl: '/views/',
-            controller: 'API    as vm'
-        })
-        .otherwise(
-            { redirectTo: '/reports' }
-        );
-    
-});
+const starwarsApp = angular.module('starwarsApp', ['ngRoute', 'ngMaterial'])
 
+starwarsApp.config(function ($routeProvider, $mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('amber')
+        .warnPalette('red')
+        .accentPalette('blue')
+        .backgroundPalette('grey')
+        .dark()
+    // app configuration
+    $routeProvider
+        .when('/search', {
+            templateUrl: '/views/search.html',
+            controller: 'SearchController as vm'
+        })
+        .when('/favorites', {
+            templateUrl: '/views/favorites.html',
+            controller: 'FavoritesController as vm'
+        })
+        .otherwise({
+            redirectTo: '/search'
+        });
+});

@@ -1,40 +1,104 @@
-app.service('SwapiService',['$http', function($http) {
+starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdToast) {
     console.log('swapi service loaded');
 
-    var self = this;
+    const self = this;
 
-    self.randomGif = {};
-    self.results = {
+    self.resources = {
         list: []
     };
 
+    self.searchResults = {
+        list: []
+    };
 
-    self.search = function (searchTerm) {
-        console.log(searchTerm);
+    self.favorites = [];
 
+    // get resources function
+    self.getResources = function () {
         $http({
             method: 'GET',
-            url: 'https://swapi.co/api/?format=api'
+            url: 'https://swapi.co/api/'
         }).then(function (response) {
-            self.results = response.data;
-            console.log('search response.data', response.data);
-
+            self.resources.list = response.data;
         })
     };
 
-    self.random = function () {
-        const API = '9kgWDRBP1kAe1sv8wHRAd3FCkvRj9x7D'
-
+    // search results function
+    self.searchSwapi = function (resource, keyword) {
         $http({
             method: 'GET',
-            url: 'http://api.giphy.com/v1/gifs/random?api_key=' + API
+            url: 'https://swapi.co/api/' + resource + '/?search=' + keyword
         }).then(function (response) {
-            console.log(response.data);
-            
-            //console.log('response', response.data.data);
-            self.randomGif.result = response.data.data;
-            console.log('self.randomGif', self.randomGif);
-
-        });
+            self.searchResults.list = response.data.results;
+            console.log('self.searchResults.list', self.searchResults.list);
+        })
     };
-}])
+
+    // post favorite to db function
+    self.favoriteAdd = function (favorite) {
+
+        $http.post('/favorites', favorite)
+
+            .then(function (response) {
+                console.log('posted to db', response);
+                self.getFavorites();
+                self.searchResults.list = {};
+            })
+            .catch(function (response) {
+                console.log('error on POST request', response);
+            });
+        $mdToast.show(
+            $mdToast.simple()
+            .content(favorite.name + ' added to Favorites!')
+            .position(self.getToastPosition())
+            .hideDelay(5000)
+        );
+    }
+
+    self.getFavorites = function () {
+        // get from db
+        console.log('service getting favorites');
+        $http.get('/favorites')
+            .then(function (response) {
+                console.log('services getFavorites', response.data);
+                self.favorites.list = response.data;
+            })
+            .catch(function (response) {
+                console.log('error services get: ', response);
+            });
+    };
+
+    self.deleteFavorite = function (_id) {
+        $http.delete(`/favorites/${_id}`)
+            .then(function (response) {
+                console.log('deleted favorite');
+                self.getFavorites();
+            })
+            .catch(function (response) {
+                console.log('error on post: ', response);
+            });
+        $mdToast.show(
+            $mdToast.simple()
+            .content('Favorite removed!')
+            .position(self.getToastPosition())
+            .hideDelay(1000)
+        );
+
+    };
+
+    self.toastPosition = function () {
+        bottom: true;
+        top: false;
+        left: false;
+        right: false;
+    };
+
+    self.getToastPosition = function () {
+        return Object.keys(self.toastPosition)
+            .filter(function (pos) {})
+            .join(' ');
+    };
+
+    self.getFavorites();
+
+}]);

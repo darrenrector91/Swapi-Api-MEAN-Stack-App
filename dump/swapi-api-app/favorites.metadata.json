@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"swapi-api-app.favorites"},{"v":2,"unique":true,"key":{"url":1},"name":"url_1","ns":"swapi-api-app.favorites","background":true}],"uuid":"bd9dffbbcd77465a8e19a809bdc512e2"}
