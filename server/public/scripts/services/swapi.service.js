@@ -38,7 +38,7 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
     self.favoriteAdd = function (favorite) {
 
         $http.post('/favorites', favorite)
-        
+
             .then(function (response) {
                 console.log('posted to db', response);
                 self.getFavorites();
@@ -77,6 +77,13 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             .catch(function (response) {
                 console.log('error on post: ', response);
             });
+        $mdToast.show(
+            $mdToast.simple()
+            .content('Favorite removed!')
+            .position(self.getToastPosition())
+            .hideDelay(1000)
+        );
+
     };
 
     self.toastPosition = function () {
