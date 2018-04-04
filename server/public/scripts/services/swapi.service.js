@@ -34,11 +34,11 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
         })
     };
 
-    // post favorite function
+    // post favorite to db function
     self.favoriteAdd = function (favorite) {
         $http.post('/favorites', favorite)
             .then(function (response) {
-                console.log('posted to favorites', response);
+                console.log('posted to db', response);
                 self.getFavorites();
                 self.searchResults.list = {};
             })

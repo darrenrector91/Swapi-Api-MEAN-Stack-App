@@ -4,9 +4,9 @@ const starwarsApp = angular.module('starwarsApp', ['ngRoute', 'ngMaterial'])
 
 starwarsApp.config(function ($routeProvider, $mdThemingProvider) {
     $mdThemingProvider.theme('default')
-        .primaryPalette('orange')
+        .primaryPalette('amber')
         .warnPalette('red')
-        .accentPalette('lime')
+        .accentPalette('blue')
         .backgroundPalette('grey')
         .dark()
     // app configuration

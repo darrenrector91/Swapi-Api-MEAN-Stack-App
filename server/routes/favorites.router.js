@@ -26,25 +26,6 @@ router.post('/', (req, res) => {
     }); // end save
 }); // end post route
 
-// POST route
-router.post('/', (req, res) => {
-    console.log('data to save: ', req.body);
-    // create an instance of our model
-    let dateToAdd = new Game(req.body);
-
-    // create a new Document in our database and collection
-    dateToAdd.save( (error, savedDate) => {
-        if (error) {
-            console.log('error on save: ', error);
-            res.sendStatus(500);            
-        } else {
-            console.log('new game Document: ', savedDate);            
-            res.sendStatus(201);
-        }
-    }); // end save
-    
-}); // end post route
-
 // GET route
 router.get('/', (req, res) => {
     Favorite.find({
@@ -62,9 +43,11 @@ router.get('/', (req, res) => {
 
 // Delete favorite by id
 router.delete('/:id', (req, res) => {
-    let favdId = req.params.id;
+    let favId = req.params.id;
+    console.log(favId);
+    
     Favorite.findByIdAndRemove({
-            '_id': favdId
+            '_id': favId
         },
         (error, removedDocument) => {
             if (error) {

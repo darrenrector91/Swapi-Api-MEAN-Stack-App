@@ -10,6 +10,18 @@ app.use(bodyParser.json()); // needed for angular requests
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/favorites', favoritesRouter);
 
+// Mongo Connection //
+var mongoURI = '';
+// process.env.MONGODB_URI will only be defined if you
+// are running on Heroku
+if(process.env.MONGODB_URI != undefined) {
+    // use the string value of the environment variable
+    mongoURI = process.env.MONGODB_URI;
+} else {
+    // use the local database server
+    mongoURI = 'mongodb://localhost:27017/swapi-api-app';
+}
+
 /** ---------- MONGOOSE ------------ **/
 const mongoose = require('mongoose');
 const databaseUrl = 'mongodb://localhost:27017/swapi-api-app'
@@ -17,7 +29,7 @@ const databaseUrl = 'mongodb://localhost:27017/swapi-api-app'
 // connect to mongoDB
 mongoose.connect(databaseUrl);
 
-// optional output from connectione events
+// optional output from connection events
 mongoose.connection.on('connected', () => {
 	console.log('mongoose is connected');
 });
