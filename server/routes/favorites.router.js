@@ -3,10 +3,21 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 let favorites = new mongoose.Schema({
-    url: {type: String, unique: true},
-    name: {type: String},
-    title: {type: String, default: false},
-    add_favorite: {type: Boolean, default: false}
+    url: {
+        type: String,
+        unique: true
+    },
+    name: {
+        type: String
+    },
+    title: {
+        type: String,
+        default: false
+    },
+    add_favorite: {
+        type: Boolean,
+        default: false
+    }
 })
 
 let Favorite = mongoose.model('Favorite', favorites);
@@ -44,8 +55,8 @@ router.get('/', (req, res) => {
 // Delete favorite by id
 router.delete('/:id', (req, res) => {
     let favId = req.params.id;
-    console.log(favId);
-    
+    console.log(_id);
+
     Favorite.findByIdAndRemove({
             '_id': favId
         },

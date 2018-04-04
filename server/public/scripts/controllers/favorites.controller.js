@@ -1,4 +1,4 @@
-starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiService) {
+starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiService, $mdToast) {
     console.log('FavoritesController loaded');
     
     const self = this;
@@ -15,6 +15,7 @@ starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiSe
     // delete Favorite
     self.deleteFavorite = function (_id) {
         SwapiService.deleteFavorite(_id);
+        
     }
 
     // favorites count total function

@@ -1,4 +1,4 @@
-starwarsApp.controller("SearchController", ['SwapiService', function (SwapiService) {
+starwarsApp.controller("SearchController", ['SwapiService', function (SwapiService, $mdToast, $mdAnimate) {
   const self = this;
 
   self.searchResults = SwapiService.searchResults;
@@ -23,6 +23,12 @@ starwarsApp.controller("SearchController", ['SwapiService', function (SwapiServi
   self.favoriteCount = function() {
     SwapiService.favoriteCount();
   }
+
+  self.testToast = function() {
+    SwapiService.testToast();
+  }
+
+  
 
   self.getResources();
 }]);

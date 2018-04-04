@@ -1,4 +1,4 @@
-starwarsApp.service('SwapiService', ['$http', function ($http) {
+starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdToast) {
     console.log('swapi service loaded');
 
     const self = this;
@@ -36,7 +36,9 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
 
     // post favorite to db function
     self.favoriteAdd = function (favorite) {
+
         $http.post('/favorites', favorite)
+        
             .then(function (response) {
                 console.log('posted to db', response);
                 self.getFavorites();
@@ -45,6 +47,12 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             .catch(function (response) {
                 console.log('error on POST request', response);
             });
+        $mdToast.show(
+            $mdToast.simple()
+            .content(favorite.name + ' added to Favorites!')
+            .position(self.getToastPosition())
+            .hideDelay(5000)
+        );
     }
 
     self.getFavorites = function () {
@@ -71,6 +79,18 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             });
     };
 
+    self.toastPosition = function () {
+        bottom: true;
+        top: false;
+        left: false;
+        right: false;
+    };
+
+    self.getToastPosition = function () {
+        return Object.keys(self.toastPosition)
+            .filter(function (pos) {})
+            .join(' ');
+    };
 
     self.getFavorites();
 
