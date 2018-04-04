@@ -27,9 +27,5 @@ starwarsApp.controller("SearchController", ['SwapiService', function (SwapiServi
     SwapiService.favoriteCount();
   }
 
-  // self.testToast = function() {
-  //   SwapiService.testToast();
-  // }
-
   self.getResources();
 }]);

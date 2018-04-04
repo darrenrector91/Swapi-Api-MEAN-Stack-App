@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const favoritesRouter = require('./routes/favorites.router');
+const mongoose = require('mongoose');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(express.static('server/public/'));
@@ -14,20 +15,22 @@ app.use('/favorites', favoritesRouter);
 var mongoURI = '';
 // process.env.MONGODB_URI will only be defined if you
 // are running on Heroku
-if(process.env.MONGODB_URI != undefined) {
+if(process.env.MONGODB_BROWN_URI != undefined) {
     // use the string value of the environment variable
-    mongoURI = process.env.MONGODB_URI;
+    mongoURI = process.env.MONGOLAB_BROWN_URI;
 } else {
     // use the local database server
     mongoURI = 'mongodb://localhost:27017/swapi-api-app';
 }
 
 /** ---------- MONGOOSE ------------ **/
-const mongoose = require('mongoose');
 const databaseUrl = 'mongodb://localhost:27017/swapi-api-app'
 
 // connect to mongoDB
-mongoose.connect(databaseUrl);
+// mongoose.connect(databaseUrl);
+mongoose.connect(mongoURI, {
+    useMongoClient: true
+});
 
 // optional output from connection events
 mongoose.connection.on('connected', () => {
