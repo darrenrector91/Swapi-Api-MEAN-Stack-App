@@ -36,9 +36,7 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
 
     // post favorite to db function
     self.favoriteAdd = function (favorite) {
-
         $http.post('/favorites', favorite)
-
             .then(function (response) {
                 console.log('posted to db', response);
                 self.getFavorites();
@@ -51,7 +49,7 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             $mdToast.simple()
             .content(favorite.name + ' added to Favorites!')
             .position(self.getToastPosition())
-            .hideDelay(5000)
+            .hideDelay(1500)
         );
     }
 
@@ -81,7 +79,7 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             $mdToast.simple()
             .content('Favorite removed!')
             .position(self.getToastPosition())
-            .hideDelay(1000)
+            .hideDelay(1500)
         );
 
     };

@@ -7,11 +7,14 @@ starwarsApp.controller("SearchController", ['SwapiService', function (SwapiServi
   // get resources function
   self.getResources = function () {
     SwapiService.getResources();
+    
   }
 
   // search function
   self.searchSwapi = function (resource, keyword) {
     SwapiService.searchSwapi(resource, keyword);
+    self.searchSwapi = " ";
+    
   }
 
   // favorite add function
@@ -24,11 +27,9 @@ starwarsApp.controller("SearchController", ['SwapiService', function (SwapiServi
     SwapiService.favoriteCount();
   }
 
-  self.testToast = function() {
-    SwapiService.testToast();
-  }
-
-  
+  // self.testToast = function() {
+  //   SwapiService.testToast();
+  // }
 
   self.getResources();
 }]);
