@@ -13,8 +13,8 @@ starwarsApp.controller("FavoritesController", ['SwapiService', function (SwapiSe
     }
 
     // delete Favorite
-    self.deleteFavorite = function (favId) {
-        SwapiService.deleteFavorite(fav._id);
+    self.deleteFavorite = function (_id) {
+        SwapiService.deleteFavorite(_id);
     }
 
     // favorites count total function

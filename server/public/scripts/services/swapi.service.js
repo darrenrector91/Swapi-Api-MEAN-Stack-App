@@ -60,8 +60,8 @@ starwarsApp.service('SwapiService', ['$http', function ($http) {
             });
     };
 
-    self.deleteFavorite = function (id) {
-        $http.delete(`/favorites/${id}`)
+    self.deleteFavorite = function (_id) {
+        $http.delete(`/favorites/${_id}`)
             .then(function (response) {
                 console.log('deleted favorite');
                 self.getFavorites();
