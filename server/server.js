@@ -29,9 +29,9 @@ const databaseUrl = 'mongodb://localhost:27017/swapi-api-app'
 
 // connect to mongoDB
 // mongoose.connect(databaseUrl);
-mongoose.connect(mongoURI, {
-    useMongoClient: true
-});
+// mongoose.connect(mongoURI, {
+//     useMongoClient: true
+// });
 
 // optional output from connection events
 mongoose.connection.on('connected', () => {
