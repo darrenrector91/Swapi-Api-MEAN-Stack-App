@@ -66,7 +66,8 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             });
     };
 
-    self.deleteFavorite = function (_id) {
+    self.deleteFavorite = function(_id) {
+        console.log(_id);
         $http.delete(`/favorites/${_id}`)
             .then(function (response) {
                 console.log('deleted favorite');

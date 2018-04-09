@@ -17,6 +17,7 @@ var mongoURI = '';
 // are running on Heroku
 if(process.env.MONGOLAB_BROWN_URI != undefined) {
     // use the string value of the environment variable
+    // mongoURI = process.env.MONGODB_URI;
     mongoURI = process.env.MONGOLAB_BROWN_URI;
 } else {
     // use the local database server
