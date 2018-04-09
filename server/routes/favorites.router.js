@@ -8,11 +8,12 @@ let favorites = new mongoose.Schema({
         unique: true
     },
     name: {
-        type: String
+        type: String,
+        default: false
     },
     title: {
         type: String,
-        default: false
+        // default: false
     },
     add_favorite: {
         type: Boolean,
@@ -53,12 +54,9 @@ router.get('/', (req, res) => {
 }); // end get 
 
 // Delete favorite by id
-router.delete('/:results._id', (req, res) => {
+router.delete('/:id', (req, res) => {
     let favId = req.params.id;
     console.log('in delete router');
-    
-    console.log(_id);
-
     Favorite.findByIdAndRemove({
             '_id': favId
         },

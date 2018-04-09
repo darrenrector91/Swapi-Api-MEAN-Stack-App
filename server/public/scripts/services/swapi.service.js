@@ -66,9 +66,9 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             });
     };
 
-    self.deleteFavorite = function(_id) {
-        console.log(_id);
-        $http.delete(`/favorites/${_id}`)
+    self.deleteFavorite = function(favId) {
+        console.log(favId);
+        $http.delete(`/favorites/${favId}`)
             .then(function (response) {
                 console.log('deleted favorite');
                 self.getFavorites();
@@ -82,7 +82,6 @@ starwarsApp.service('SwapiService', ['$http', '$mdToast', function ($http, $mdTo
             .position(self.getToastPosition())
             .hideDelay(1500)
         );
-
     };
 
     self.toastPosition = function () {

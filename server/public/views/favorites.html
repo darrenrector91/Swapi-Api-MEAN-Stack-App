@@ -7,17 +7,12 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <!-- <span class="md-headline" ng-if="results.title">{{results.title}}</span> -->
-                        <span class="md-headline" ng-if="results.name">{{results.name}}</span>
-                    </md-card-title-text>
-                    <md-card-title-text>
-                        <!-- <span class="md-headline" ng-if="results.title">{{results.title}}</span> -->
-                        <span class="md-headline" ng-if="results.name">{{results.title}}</span>
+                        <span class="md-headline" ng-if="results.title != 'false'">{{results.title}}</span>
+                        <span class="md-headline" ng-if="results.name != 'false'">{{results.name}}</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-button class="md-raised btnDelete" ng-click="vm.deleteFavorite(results._id)">Delete favorite</md-button>
             </md-card>
-            {{results._id}}
         </div>
     <!-- </md-content> -->
 </div>
